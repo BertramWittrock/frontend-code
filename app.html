@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/notes.css" />
+    <title>Joe Board</title>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var area = localStorage.getItem("area");
+        var socketIoScript = document.createElement("script");
+        switch (area) {
+          case "eu":
+            socketIoScript.src =
+              "https://eu.joeandthejuice.digital/socket.io/socket.io.js";
+            break;
+          case "asia":
+            socketIoScript.src =
+              "https://asia.joeandthejuice.digital/socket.io/socket.io.js";
+            break;
+          case "us":
+            socketIoScript.src =
+              "https://us.joeandthejuice.digital/socket.io/socket.io.js";
+            break;
+          default:
+            console.error("Area not set or unknown");
+            return;
+        }
+
+        socketIoScript.onload = function () {
+          var scriptsJs = document.createElement("script");
+          scriptsJs.src = "js/scripts.js";
+          document.head.appendChild(scriptsJs);
+        };
+
+        socketIoScript.onerror = function () {
+          console.error("Failed to load the Socket.IO script");
+        };
+
+        document.head.appendChild(socketIoScript);
+      });
+    </script>
+    <script defer src="js/appScripts.js"></script>
+  </head>
+  <body>
+    <div id="navbar" class="navbar">
+      <h2><a id="nav-logo" href="/index.html">JOE APP</a></h2>
+      <div id="server-select" class="server-select-wrapper">
+        <a href="server.html">Switch server</a>
+      </div>
+      <div id="auth" class="auth">
+        <button id="sign-out-button">Log ud</button>
+      </div>
+    </div>
+
+    <div id="main-content">
+      <div id="note-creation-container">
+        <h2>Lav ny note</h2>
+        <div class="note-creation">
+          <input
+            type="text"
+            id="noteInput"
+            placeholder="Skriv en note her..."
+          />
+          <button id="input-btn" onclick="postNote()">Send ny note ind</button>
+        </div>
+      </div>
+
+      <div id="notesContainer">
+
+      </div>
+    </div>
+  </body>
+</html>

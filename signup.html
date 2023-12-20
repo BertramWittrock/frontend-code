@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <script defer src="js/signup.js"></script>
+</head>
+<body>
+    <a href="index.html" id="logo"><img src="pic/joeLogo.png" alt="JoeLogo" width="130" height="130"></a>
+    <div id="mainFlexDiv">
+        <h2>Join the JOE team! Sign up:</h2>
+        <div id="form-wrapper">
+            <form id="sign-up-form">
+                <div id="sign-up-form-input">
+                    <div class="mainBoks">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mainBoks">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Choose a username" required>
+                    </div>
+                    <div class="mainBoks">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Create a password" required>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" id="signup-button">Sign Up</button>
+                </div>
+            </form>
+            <div id="login-instead">
+                <a href="login.html">Already a member? Log in</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
